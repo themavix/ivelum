@@ -8,13 +8,12 @@ import { createClient, Provider } from 'urql';
 import { BrowserRouter } from 'react-router-dom';
 
 const url = 'https://api.github.com/graphql';
-const token = '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';
 
 export const client = createClient({
   url,
   fetchOptions: () => {
     return {
-      headers: { authorization: token ? `Bearer ${token}` : '' },
+      headers: { authorization: `Bearer ${process.env.REACT_APP_GITHUB_AUTH_TOKEN}` },
     };
   },
 });
