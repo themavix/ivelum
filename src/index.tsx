@@ -8,7 +8,7 @@ import { createClient, Provider } from 'urql';
 import { BrowserRouter } from 'react-router-dom';
 
 const url = 'https://api.github.com/graphql';
-const token = process.env.REACT_APP_GITHUB_AUTH_TOKEN;
+const token = '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';
 
 export const client = createClient({
   url,
