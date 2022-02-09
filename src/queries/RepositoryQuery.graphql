@@ -1,0 +1,22 @@
+query repository($owner: String!, $name: String!, $expression: String!) {
+  repository(owner: $owner, name: $name) {
+    object(expression: $expression) {
+      ... on Tree {
+        entries {
+          oid
+          name
+          type
+          mode
+          
+          object {
+            ... on Blob {
+              id
+              text
+              isBinary
+            }
+          }
+        }
+      }
+    }
+  }
+}

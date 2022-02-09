@@ -1,0 +1,29 @@
+query repositories($searchQuery: String!) {
+  search(query: $searchQuery, type: REPOSITORY, first: 30) {
+    edges {
+      cursor
+      node {
+        ... on Repository {
+          id
+          name
+          nameWithOwner
+          description
+          stargazerCount
+          licenseInfo {
+            id
+            name
+          }
+          primaryLanguage {
+            id
+            name
+            color
+          }
+          owner {
+            id
+            login
+          }
+        }
+      }
+    }
+  }
+}
